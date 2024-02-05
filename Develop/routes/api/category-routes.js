@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
-
+const seedCategories = require('../../seeds/category-seeds');
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.findAll({
@@ -26,16 +26,8 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Products
 });
 
-router.post('/', async (req, res) => {
-  try {
-    const newCategory = await Category.create({
-      category_name: req.body.category_name
-    });
- 
-    res.status(201).json(newCategory);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.post('/', (req, res) => {
+
 });
 
 router.put('/:id', (req, res) => {
