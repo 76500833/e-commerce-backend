@@ -11,6 +11,11 @@ const ProductTag = require('./ProductTag');
 // Products belongToMany Tags (through ProductTag)
 
 // Tags belongToMany Products (through ProductTag)
+// models/index.js
+// const Product = require('./Product');
+
+// const Tag = require('./Tag');
+
 
 module.exports = {
   Product,
