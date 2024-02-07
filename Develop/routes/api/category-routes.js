@@ -6,14 +6,19 @@ const seedCategories = require('../../seeds/category-seeds');
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.findAll({
-
+      include: [
+        {
+          // be sure to include its associated Products
+          model: Product, // replace with your Product model
+          as: 'products' // optional: alias for the association
+        }
+      ]
     });
     res.json(categories);
   } catch (err) {
     res.status(500).json(err);
   }
 
-  // be sure to include its associated Products
 });
 
 router.get('/:id', async (req, res) => {
