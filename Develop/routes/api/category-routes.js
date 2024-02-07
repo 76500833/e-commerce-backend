@@ -6,12 +6,7 @@ const seedCategories = require('../../seeds/category-seeds');
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.findAll({
-      // include: [
-      //   {
-      //     model: Product,
-      //     as: 'products'
-      //   }
-      // ]
+
     });
     res.json(categories);
   } catch (err) {
